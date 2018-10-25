@@ -61,18 +61,9 @@ BaselineOfPillarCore >> baseline: spec [
 				package: 'Pillar-Tests-PetitPillar' with: [ spec requires: #('PetitParser2Core' 'Pillar-PetitPillar') ].	
 					
 		spec
-				group: 'ALL' with: #('All tests' 'All but tests');
-				group: 'All but tests'
-					with: #('All exporters' 'Pillar-Cli' 'Pillar-Pharo-Tools' 'Pillar-GitBook' 'parser' 'Pillar-Project');
-				group: 'All exporter tests'
-					with:
-					#('html exporter tests' 'latex exporter tests' 'beamer exporter tests' 'deckjs exporter tests' 'markdown exporter tests' 'pillar exporter tests' 'text exporter tests' 'asciidoc exporter tests' 'ePub exporter tests');
 				group: 'All exporters'
 					with:
 					#('html exporter' 'latex exporter' 'beamer exporter' 'deckjs exporter' 'markdown exporter' 'pillar exporter' 'text exporter' 'asciidoc exporter' 'ePub exporter');
-				group: 'All tests'
-					with:
-					#('All exporter tests' 'Pillar-Tests-Model' 'Pillar-Tests-ExporterCore' #'Pillar-Tests-Cli' 'parser tests' 'Pillar-Tests-Project' 'Pillar-Tests-Integration');
 				group: 'asciidoc exporter' with: #(#'Pillar-ExporterAsciiDoc');
 				group: 'asciidoc exporter tests' with: #(#'Pillar-Tests-ExporterAsciiDoc' 'ePub exporter');
 				group: 'beamer exporter' with: #('Pillar-ExporterBeamer');
