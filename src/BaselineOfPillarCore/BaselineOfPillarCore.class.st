@@ -1,7 +1,7 @@
 Class {
 	#name : #BaselineOfPillarCore,
 	#superclass : #BaselineOf,
-	#category : #BaselineOfPillar
+	#category : #BaselineOfPillarCore
 }
 
 { #category : #baselines }
