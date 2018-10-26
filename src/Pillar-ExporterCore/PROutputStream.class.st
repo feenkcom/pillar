@@ -58,6 +58,11 @@ PROutputStream >> newLine [
 	self << self configuration newLine
 ]
 
+{ #category : #accessing }
+PROutputStream >> nextPut: aCharacter [
+	stream nextPut: aCharacter
+]
+
 { #category : #initialization }
 PROutputStream >> setStream: aWriteStream [
 	stream := aWriteStream

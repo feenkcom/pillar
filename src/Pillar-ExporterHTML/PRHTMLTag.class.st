@@ -52,7 +52,7 @@ Class {
 { #category : #accessing }
 PRHTMLTag >> name: aString [
 	name := aString.
-	stream << $< << aString
+	stream nextPut: $<; << aString
 ]
 
 { #category : #accessing }
@@ -62,5 +62,5 @@ PRHTMLTag >> parameterAt: aString put: anotherString [
 
 { #category : #accessing }
 PRHTMLTag >> with: aString [
-	stream << $> << aString << '</' << name << $>
+	stream nextPut: $>; << aString; << '</'; << name; nextPut: $>
 ]

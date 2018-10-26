@@ -58,7 +58,7 @@ PRExportCanvas >> newLine [
 
 { #category : #'writing text' }
 PRExportCanvas >> nextPut: aCharacter [
-	stream << aCharacter
+	stream nextPut: aCharacter
 ]
 
 { #category : #'writing text' }
