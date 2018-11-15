@@ -500,7 +500,11 @@ PRPillarGrammar >> link [
 
 { #category : #'grammar - Reference' }
 PRPillarGrammar >> linkAlias [
-	^ ((escapedCharacter / (linkMarkup / referenceAliasMarkup) negate) star flatten, referenceAliasMarkup) ==> #first
+	^ 	epsilonToken , 
+		(escapedCharacter / 
+			(linkMarkup / referenceAliasMarkup) negate) star flatten , 
+		epsilonToken ,
+		referenceAliasMarkup
 ]
 
 { #category : #'grammar - Reference' }
