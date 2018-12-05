@@ -55,30 +55,6 @@ BaselineOfPillarExporter >> baseline: spec [
 				
 				"Pillar-Tests-Model should be in core, but has many exporter dependencies"
 				package: 'Pillar-Tests-Model' with: [ spec requires: #('PillarCore' 'Pillar-ExporterPillar' 'Pillar-ExporterText') ].
-				
-					
-		spec
-				group: 'All exporters'
-					with:
-					#('html exporter' 'latex exporter' 'beamer exporter' 'deckjs exporter' 'markdown exporter' 'pillar exporter' 'text exporter' 'asciidoc exporter' 'ePub exporter');
-				group: 'asciidoc exporter' with: #(#'Pillar-ExporterAsciiDoc');
-				group: 'asciidoc exporter tests' with: #(#'Pillar-Tests-ExporterAsciiDoc' 'ePub exporter');
-				group: 'beamer exporter' with: #('Pillar-ExporterBeamer');
-				group: 'beamer exporter tests' with: #('Pillar-Tests-ExporterBeamer');
-				group: 'deckjs exporter' with: #('Pillar-ExporterDeckJS');
-				group: 'deckjs exporter tests' with: #('Pillar-Tests-ExporterDeckJS');
-				group: 'ePub exporter' with: #(#'Pillar-ExporterEPub');
-				group: 'ePub exporter tests' with: #(#'Pillar-Tests-ExporterEPub');
-				group: 'html exporter' with: #('Pillar-ExporterHTML');
-				group: 'html exporter tests' with: #('Pillar-Tests-ExporterHTML');
-				group: 'latex exporter' with: #('Pillar-ExporterLaTeX');
-				group: 'latex exporter tests' with: #('Pillar-Tests-ExporterLaTeX');
-				group: 'markdown exporter' with: #('Pillar-ExporterMarkdown' 'PillarCore');
-				group: 'markdown exporter tests' with: #('Pillar-Tests-ExporterMarkdown');
-				group: 'pillar exporter' with: #('Pillar-ExporterPillar');
-				group: 'pillar exporter tests' with: #('Pillar-Tests-ExporterPillar');
-				group: 'text exporter' with: #('Pillar-ExporterText');
-				group: 'text exporter tests' with: #('Pillar-Tests-ExporterText').
 	]
 
 ]
