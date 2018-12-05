@@ -15,7 +15,7 @@ BaselineOfPillarExporter >> baseline: spec [
 				baseline: 'PillarCore' with: [ spec 
 					repository: 'github://feenkcom/pillar:feenk/src' ];
 				baseline: 'Chrysal' with: [ spec 
-					repository: 'github://feenkcom/Chrysal/src' ];
+					repository: 'github://feenkcom/Chrysal:v1.0.0/src' ];
 				baseline: 'Mustache' with: [ spec
 					repository: 'github://noha/mustache:v1.0/repository';
 					loads: #('Core' 'Tests') ];

@@ -13,7 +13,7 @@ BaselineOfPillarCore >> baseline: spec [
 		do: [ spec blessing: #baseline.
 			spec 
 				baseline: 'ContainersPropertyEnvironment' with: [ spec 
-					repository: 'github://feenkcom/Containers-PropertyEnvironment' ];
+					repository: 'github://feenkcom/Containers-PropertyEnvironment:v1.0.0' ];
 				baseline: 'PetitParser2Core' with: [ spec
 					 repository: 'github://kursjan/petitparser2' ];
 
