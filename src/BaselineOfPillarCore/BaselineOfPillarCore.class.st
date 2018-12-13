@@ -4,27 +4,20 @@ Class {
 	#category : #BaselineOfPillarCore
 }
 
-{ #category : #baselines }
+{ #category : #baseline }
 BaselineOfPillarCore >> baseline: spec [
 	<baseline>
-
-	spec
-		for: #common
-		do: [ spec blessing: #baseline.
-			spec 
-				baseline: 'ContainersPropertyEnvironment' with: [ spec 
-					repository: 'github://feenkcom/Containers-PropertyEnvironment:v1.0.0' ];
-				baseline: 'PetitParser2Core' with: [ spec
-					 repository: 'github://kursjan/petitparser2' ];
-
-				package: 'Pillar-Model';
-				package: 'Pillar-PetitPillar' with: [ spec 
-					requires: #( 'PetitParser2Core' 'Pillar-Model' ) ];
-				"package: 'Pillar-Tests-Model' with: [ spec 
-					requires: #('Pillar-Model' 'Pillar-ExporterPilar' 'Pillar-ExporterText') ];"
-				package: 'Pillar-Tests-PetitPillar' with: [ spec 
-					requires: #( 'Pillar-PetitPillar' )  ]
-					
-	]
+	spec for: #'common' do: [
+		spec 
+			baseline: 'ContainersPropertyEnvironment' with: [
+				spec repository: 'github://feenkcom/Containers-PropertyEnvironment:v1.0.0' ];
+			baseline: 'PetitParser2Core' with: [
+				spec repository: 'github://kursjan/petitparser2' ].
+		spec 
+			package: 'Pillar-Model';
+			package: 'Pillar-PetitPillar' with: [
+				spec requires: #('PetitParser2Core' 'Pillar-Model' ). ];
+			package: 'Pillar-Tests-PetitPillar' with: [
+				spec requires: #('Pillar-PetitPillar' ). ]. ].
 
 ]
