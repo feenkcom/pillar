@@ -16,7 +16,7 @@ BaselineOfPillarExporter >> baseline: spec [
 			baseline: 'Mustache' with: [
 				spec
 					loads: #('Core' 'Tests' );
-					repository: 'github://noha/mustache:v0.74/repository' ].
+					repository: 'github://noha/mustache:v1.0/repository' ].
 		spec 
 			package: 'Pillar-Chrysal-Generator' with: [
 				spec requires: #('PillarCore' 'Chrysal' ). ];

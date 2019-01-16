@@ -1,1 +1,8 @@
-{	"repositories" : {		"github://kursjan/petitparser2" : "731216a76e0ab7957fc45fa1099ced7f2627e3ab",		"github://feenkcom/Containers-PropertyEnvironment" : "v1.0.0",		"github://feenkcom/Chrysal/src" : "v1.0.0",		"github://noha/mustache/repository" : "v0.74"	}}
+{
+	"repositories" : {
+		"github://kursjan/petitparser2" : "731216a76e0ab7957fc45fa1099ced7f2627e3ab",
+		"github://feenkcom/Containers-PropertyEnvironment" : "v1.0.0",
+		"github://feenkcom/Chrysal/src" : "v1.0.0",
+		"github://noha/mustache/repository" : "v1.0"
+	}
+}
