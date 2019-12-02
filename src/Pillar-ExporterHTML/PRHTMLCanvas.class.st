@@ -12,7 +12,7 @@ Class {
 	#classVars : [
 		'HTMLCharacters'
 	],
-	#category : 'Pillar-ExporterHTML'
+	#category : #'Pillar-ExporterHTML'
 }
 
 { #category : #'class initialization' }
@@ -28,6 +28,13 @@ PRHTMLCanvas class >> initialize [
 { #category : #tags }
 PRHTMLCanvas >> emptyTag [
 	^ self brush: PRHTMLEmptyTag new
+]
+
+{ #category : #break }
+PRHTMLCanvas >> linebreak [ 
+	self emptyTag
+		name: 'br';
+		closeTag.
 ]
 
 { #category : #'writing text' }
