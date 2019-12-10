@@ -1,7 +1,7 @@
 Class {
 	#name : #PRPillarGrammarTest,
 	#superclass : #PP2CompositeNodeTest,
-	#category : 'Pillar-Tests-PetitPillar'
+	#category : #'Pillar-Tests-PetitPillar'
 }
 
 { #category : #accessing }
@@ -73,6 +73,8 @@ PRPillarGrammarTest >> testAnnotation [
 
 { #category : #'tests - Annotation' }
 PRPillarGrammarTest >> testAnnotationAreTrimedAtTheRight [
+	<noTest>
+	"We should not eat spaces"
 	self parse: '${inputFile:path=Foo}$  ' rule: #annotation
 ]
 

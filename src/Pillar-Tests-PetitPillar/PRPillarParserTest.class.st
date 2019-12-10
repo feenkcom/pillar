@@ -1,7 +1,7 @@
 Class {
 	#name : #PRPillarParserTest,
 	#superclass : #PRPillarGrammarTest,
-	#category : 'Pillar-Tests-PetitPillar'
+	#category : #'Pillar-Tests-PetitPillar'
 }
 
 { #category : #asserting }
@@ -134,6 +134,8 @@ PRPillarParserTest >> testAnnotation [
 
 { #category : #'tests - Annotation' }
 PRPillarParserTest >> testAnnotationAreTrimedAtTheRight [
+	<noTest>
+	"We should not eat spaces"
 	super testAnnotationAreTrimedAtTheRight.
 	self
 		assert: result
