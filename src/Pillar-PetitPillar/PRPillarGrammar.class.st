@@ -126,7 +126,7 @@ Class {
 		'EndMarkups',
 		'Markups'
 	],
-	#category : 'Pillar-PetitPillar'
+	#category : #'Pillar-PetitPillar'
 }
 
 { #category : #accessing }
@@ -282,8 +282,8 @@ PRPillarGrammar >> annotation [
 		annotationTag , 
 		annotationParameters optional ,
 		annotationEndMarkup , 
-		epsilonToken ,
-		#blank asPParser star
+		epsilonToken ",
+		#blank asPParser star"
 ]
 
 { #category : #'grammar - Annotation' }
