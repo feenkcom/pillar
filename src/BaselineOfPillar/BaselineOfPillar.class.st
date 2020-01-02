@@ -1,7 +1,7 @@
 Class {
 	#name : #BaselineOfPillar,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfPillar'
+	#category : #BaselineOfPillar
 }
 
 { #category : #baselines }
@@ -33,7 +33,7 @@ BaselineOfPillar >> baseline: spec [
 				baseline: 'Chrysal' with: [ spec repository: 'github://Ducasse/Chrysal/src' ];
 				baseline: 'Mustache'
 					with: [ spec
-						repository: 'github://noha/mustache:v1.0/repository';
+						repository: 'github://noha/mustache:v1.0.1/repository';
 						loads: #('Core' 'Tests') ].
 			spec
 				package: 'Pillar-Chrysal-Generator' with: [ spec requires: #('Chrysal') ];
