@@ -5,7 +5,7 @@ I use the PRPillarGrammar and I build a PRDocument.
 Class {
 	#name : #PRPillarParser,
 	#superclass : #PRPillarGrammar,
-	#category : 'Pillar-PetitPillar'
+	#category : #'Pillar-PetitPillar'
 }
 
 { #category : #parsing }
@@ -265,6 +265,14 @@ PRPillarParser >> monospaceFormat [
 { #category : #'grammar - Format' }
 PRPillarParser >> monospaceMarkup [
 	^ super monospaceMarkup ==> [ :token | PRMonospaceFormat ]
+]
+
+{ #category : #'grammar - List' }
+PRPillarParser >> moveStartAndEndNodes: aCollectionOfNodes by: aShiftNumber [
+	self halt.
+	"PRPillarListPositionFixer new
+		shiftNumber: aShiftNumber;
+		visitAll: aCollectionOfNodes"
 ]
 
 { #category : #'grammar - List' }
@@ -658,6 +666,7 @@ PRPillarParser >> underlineMarkup [
 { #category : #'grammar - List' }
 PRPillarParser >> unorderedList [
 	^ super unorderedList ==> [ :array | 
+			self halt.
 			(PRUnorderedList withAll: array second)
 				start: array first start;
 				stop: array last stop ]
@@ -671,7 +680,11 @@ PRPillarParser >> unorderedListItem [
 		item addAll: array fourth.
 		array fifth isNotNil
 			ifTrue:
-				[ item addAll: (self listsParser parse: array fifth) ].
+				[ "iterate over sub-ast and move start and end positions"
+				| aNode |
+				aNode := self listsParser parse: array fifth.
+				self moveStartAndEndNodes: aNode by: array first start.
+				item addAll: aNode ].
 		item start: array first start; stop: array last stop.
 		item ]
 ]
