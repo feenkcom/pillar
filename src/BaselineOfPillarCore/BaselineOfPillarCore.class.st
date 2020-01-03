@@ -12,7 +12,7 @@ BaselineOfPillarCore >> baseline: spec [
 			baseline: 'ContainersPropertyEnvironment' with: [
 				spec repository: 'github://feenkcom/Containers-PropertyEnvironment:v1.0.0' ];
 			baseline: 'PetitParser2Core' with: [
-				spec repository: 'github://kursjan/petitparser2:8c7438ce8a15ae2dd66f7b2ccc710801de5cacc5' ].
+				spec repository: 'github://kursjan/petitparser2:0c589d1e4079760f16bd74f0964c925d3dd35a38' ].
 		spec 
 			package: 'Pillar-Model';
 			package: 'Pillar-PetitPillar' with: [
