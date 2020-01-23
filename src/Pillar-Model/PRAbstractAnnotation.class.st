@@ -35,7 +35,7 @@ Class {
 		'hadAllKeys',
 		'isValid'
 	],
-	#category : 'Pillar-Model-Document'
+	#category : #'Pillar-Model-Document'
 }
 
 { #category : #protected }
@@ -114,7 +114,7 @@ PRAbstractAnnotation class >> validateParameters: parameters [
 	
 	| usedKeys  |
 	usedKeys := parameters keys. 
-	usedKeys isEmpty and: [ self hasParameters ifTrue: [  (PRSyntaxError signal: 'The annotation ', self tag, 'expect parameters from', self possibleParameters printString, 'and none where given.')]  ].
+	usedKeys isEmpty and: [ self hasParameters ifTrue: [  (PRSyntaxError signal: 'The annotation ', self tag, ' expect parameters from ', self possibleParameters printString, ' and none were given.')]  ].
 	
 	(usedKeys allSatisfy: [ :each | self possibleParameters includes: each asSymbol ])
 		ifFalse: [ PRSyntaxError
