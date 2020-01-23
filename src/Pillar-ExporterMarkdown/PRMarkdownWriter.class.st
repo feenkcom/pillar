@@ -8,7 +8,7 @@ Class {
 	#instVars : [
 		'nesting'
 	],
-	#category : 'Pillar-ExporterMarkdown'
+	#category : #'Pillar-ExporterMarkdown'
 }
 
 { #category : #accessing }
@@ -239,7 +239,10 @@ PRMarkdownWriter >> writeExternalLink: anExternalLink [
 	"http://spec.commonmark.org/0.28/#links"
 
 	canvas
-		writeLinkDuring: [ self visitDocumentGroup: anExternalLink ]
+		writeLinkDuring: 
+			[ anExternalLink hasChildren
+				ifTrue: [ self visitDocumentGroup: anExternalLink ]
+				ifFalse: [ canvas raw: anExternalLink reference ] ]
 		destination: anExternalLink localFileOrExternalReference.
 ]
 
