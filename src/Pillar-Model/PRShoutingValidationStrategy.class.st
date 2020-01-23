@@ -1,7 +1,7 @@
 Class {
 	#name : #PRShoutingValidationStrategy,
 	#superclass : #PRValidationStrategy,
-	#category : 'Pillar-Model-ValidationStrategies'
+	#category : #'Pillar-Model-ValidationStrategies'
 }
 
 { #category : #'error handling' }
@@ -13,8 +13,8 @@ PRShoutingValidationStrategy >> invalidParameterNames: aMissingKeys forAnnotatio
 { #category : #'error handling' }
 PRShoutingValidationStrategy >> missingAnnotationParametersIn: anAnnotation [
 	PRSyntaxError signal: 'The annotation ', anAnnotation tag, 
-		'expect parameters from', anAnnotation class possibleParameters printString, 
-		'and none where given.'
+		'expect parameters from ', anAnnotation class possibleParameters printString, 
+		' and none were given.'
 ]
 
 { #category : #'error handling' }
