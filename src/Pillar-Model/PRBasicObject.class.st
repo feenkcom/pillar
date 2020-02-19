@@ -5,10 +5,15 @@ I could be replaced by Object.
 Class {
 	#name : #PRBasicObject,
 	#superclass : #Object,
-	#category : 'Pillar-Model-BasicRoots'
+	#category : #'Pillar-Model-BasicRoots'
 }
 
 { #category : #'error handling' }
 PRBasicObject class >> defaultErrorClass [
 	^ PRError
+]
+
+{ #category : #enumerating }
+PRBasicObject >> select: selectBlock thenDo: doBlock [
+	"No children, so nothing to do"
 ]

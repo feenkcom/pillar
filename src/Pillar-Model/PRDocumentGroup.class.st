@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'children'
 	],
-	#category : 'Pillar-Model-Document'
+	#category : #'Pillar-Model-Document'
 }
 
 { #category : #testing }
@@ -85,6 +85,25 @@ PRDocumentGroup >> postCopy [
 	super postCopy.
 	self setChildren: (self children
 		collect: [ :each | each copy ])
+]
+
+{ #category : #enumerating }
+PRDocumentGroup >> select: selectBlock [
+
+	^ Array streamContents: [ :stream |
+		self 
+			select: selectBlock
+			thenDo: [ :node | stream nextPut: node ] ]
+]
+
+{ #category : #enumerating }
+PRDocumentGroup >> select: selectBlock thenDo: doBlock [
+	"Select the children matching selectBlock and evaluate them against doBlock"
+
+	(selectBlock value: self) ifTrue: 
+		[ doBlock value: self ].
+	self children do: [ :child |
+		child select: selectBlock thenDo: doBlock ]
 ]
 
 { #category : #initialization }
