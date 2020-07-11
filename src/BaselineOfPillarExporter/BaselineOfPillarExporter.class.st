@@ -21,7 +21,7 @@ BaselineOfPillarExporter >> baseline: spec [
 			package: 'Pillar-Chrysal' with: [
 				spec requires: #('PillarCore' ). ];
 			package: 'Pillar-ExporterCore' with: [
-				spec requires: #('PillarCore' 'Mustache' 'Pillar-Chrysal' ). ];
+				spec requires: #('PillarCore' 'MustacheCore' 'Pillar-Chrysal' ). ];
 			package: 'Pillar-ExporterAsciiDoc' with: [
 				spec requires: #('Pillar-ExporterCore' ). ];
 			package: 'Pillar-ExporterHTML' with: [
