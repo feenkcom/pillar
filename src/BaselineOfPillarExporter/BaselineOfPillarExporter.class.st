@@ -10,20 +10,18 @@ BaselineOfPillarExporter >> baseline: spec [
 	spec for: #'common' do: [
 		spec 
 			baseline: 'PillarCore' with: [
-				spec repository: 'github://feenkcom/pillar:v7.3.19/src' ];
+				spec repository: 'github://feenkcom/pillar:feenk/src' ];
 			baseline: 'Chrysal' with: [
 				spec repository: 'github://feenkcom/Chrysal:v1.0.0/src' ];
-			baseline: 'Mustache' with: [
-				spec
-					loads: #('Core' 'Tests' );
-					repository: 'github://noha/mustache:v1.0.1/repository' ].
+			baseline: 'MustacheCore' with: [
+				spec repository: 'github://feenkcom/mustache:gt1.0.1/repository' ].
 		spec 
 			package: 'Pillar-Chrysal-Generator' with: [
 				spec requires: #('PillarCore' 'Chrysal' ). ];
 			package: 'Pillar-Chrysal' with: [
 				spec requires: #('PillarCore' ). ];
 			package: 'Pillar-ExporterCore' with: [
-				spec requires: #('PillarCore' 'Mustache' 'Pillar-Chrysal' ). ];
+				spec requires: #('PillarCore' 'MustacheCore' 'Pillar-Chrysal' ). ];
 			package: 'Pillar-ExporterAsciiDoc' with: [
 				spec requires: #('Pillar-ExporterCore' ). ];
 			package: 'Pillar-ExporterHTML' with: [
@@ -61,7 +59,7 @@ BaselineOfPillarExporter >> baseline: spec [
 			package: 'Pillar-Tests-ExporterDeckJS' with: [
 				spec requires: #('Pillar-ExporterDeckJS' 'Pillar-Tests-ExporterHTML' ). ];
 			package: 'Pillar-Tests-ExporterEPub' with: [
-				spec requires: #('Pillar-ExporterEPub' 'Pillar-Tests-ExporterCore' ). ];
+				spec requires: #(#'Pillar-ExporterEPub' 'Pillar-Tests-ExporterCore' ). ];
 			package: 'Pillar-Tests-ExporterAsciiDoc' with: [
 				spec requires: #('Pillar-ExporterAsciiDoc' 'Pillar-Tests-ExporterCore' ). ]. ].
 
