@@ -6,7 +6,9 @@ Class {
 	#name : #PRMarkdownWriter,
 	#superclass : #PRDocumentWriter,
 	#instVars : [
-		'nesting'
+		'nesting',
+		'bulletListMarker',
+		'orderedListNumberingBlock'
 	],
 	#category : #'Pillar-ExporterMarkdown'
 }
@@ -26,6 +28,17 @@ PRMarkdownWriter class >> writerName [
 	^ #markdown
 ]
 
+{ #category : #'visiting-document' }
+PRMarkdownWriter >> bulletListMarker [
+	^ bulletListMarker ifNil: [ bulletListMarker := $- ]
+]
+
+{ #category : #accessing }
+PRMarkdownWriter >> bulletListMarker: aCharacter [
+	"A bullet list marker is a -, +, or * character (per https://spec.commonmark.org/0.29/#list-items)"
+	bulletListMarker := aCharacter
+]
+
 { #category : #accessing }
 PRMarkdownWriter >> canvasClass [
 	^ PRMarkdownCanvas
@@ -40,6 +53,16 @@ PRMarkdownWriter >> createAnchorWith: aString [
 PRMarkdownWriter >> nest: aString do: aBlock [
 	nesting add: aString.
 	aBlock ensure: [ nesting removeLast ]
+]
+
+{ #category : #accessing }
+PRMarkdownWriter >> orderedListNumberingBlock [
+	^ orderedListNumberingBlock ifNil: [ orderedListNumberingBlock := [ :last | last + 1 ] ]
+]
+
+{ #category : #accessing }
+PRMarkdownWriter >> orderedListNumberingBlock: aBlock [
+	orderedListNumberingBlock := aBlock
 ]
 
 { #category : #protected }
@@ -128,6 +151,7 @@ PRMarkdownWriter >> visitHeader: aHeader [
 	"http://spec.commonmark.org/0.28/#atx-headings"
 
 	| level |
+	canvas potentialNewLine.
 	level := aHeader level min: 6 max: 1.
 	1 to: level do: [ :each | canvas nextPut: $# ].
 	canvas nextPut: Character space.
@@ -169,7 +193,7 @@ PRMarkdownWriter >> visitItalicFormat: aFormat [
 PRMarkdownWriter >> visitListItem: aListItem [
 	"http://spec.commonmark.org/0.28/#list-items and http://spec.commonmark.org/0.28/#lists"
 
-	nesting last isInteger ifTrue: [ nesting addLast: nesting removeLast + 1 ].
+	nesting last isInteger ifTrue: [ nesting addLast: (self orderedListNumberingBlock value: nesting removeLast) ].
 	nesting size - 1 timesRepeat: [ canvas raw: '  ' ].
 	canvas nextPutAll: nesting last asString.
 	canvas nextPutAll: (nesting last isInteger 
@@ -231,7 +255,7 @@ PRMarkdownWriter >> visitTermItem: anObject [
 PRMarkdownWriter >> visitUnorderedList: aList [
 	"http://spec.commonmark.org/0.28/#list-items and http://spec.commonmark.org/0.28/#lists"
 	canvas potentialNewLine.
-	self nest: '-' do: [ self visitDocumentGroup: aList ]
+	self nest: self bulletListMarker do: [ self visitDocumentGroup: aList ]
 ]
 
 { #category : #writing }

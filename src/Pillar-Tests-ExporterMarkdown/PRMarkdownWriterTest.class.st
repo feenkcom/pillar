@@ -1,7 +1,7 @@
 Class {
 	#name : #PRMarkdownWriterTest,
 	#superclass : #PRDocumentWriterTest,
-	#category : 'Pillar-Tests-ExporterMarkdown'
+	#category : #'Pillar-Tests-ExporterMarkdown'
 }
 
 { #category : #private }
@@ -292,6 +292,19 @@ PRMarkdownWriterTest >> testAnnotation [
 ]
 
 { #category : #tests }
+PRMarkdownWriterTest >> testBulletListMarker [
+	| item |
+	item := item := PRUnorderedList new
+		add:
+			(PRListItem new
+				add: (PRText content: self listItemWith1);
+				yourself);
+		yourself.
+	self assert: (self write: item) includesSubstring: '- 1'.
+	self assert: (self writerDo: [ :w | w bulletListMarker: '*' ] thenWrite: item) includesSubstring: '* 1'
+]
+
+{ #category : #tests }
 PRMarkdownWriterTest >> testFigureWithoutLabelAndWithoutCaptionAreExportedWithoutEnvironment [
 	self skip "Figures are no environnement in Markdown"
 ]
@@ -371,6 +384,25 @@ PRMarkdownWriterTest >> testNestingListWith2ItemWith2SubItem [
 		<< self orderedListBegin << self listItemWith1 << self configuration newLine << '    ' << self orderedListBegin
 		<< self listItemWith1 << self configuration newLine << self unorderedListBegin << self listItemWith1.
 	self assert: (self write: item) includesSubstring: expected contents
+]
+
+{ #category : #tests }
+PRMarkdownWriterTest >> testOrderedListNumbering [
+	| item |
+	item := item := PROrderedList new
+		add:
+			(PRListItem new
+				add: (PRText content: self listItemWith1);
+				yourself);
+		add:
+			(PRListItem new
+				add: (PRText content: self listItemWith1);
+				yourself);
+		yourself.
+	self assert: (self write: item) includesSubstring: '1. 1
+2. 1'.
+	self assert: (self writerDo: [ :w | w orderedListNumberingBlock: [ :last | last ] ] thenWrite: item) includesSubstring: '1. 1
+2. 1'
 ]
 
 { #category : #tests }
