@@ -15,7 +15,7 @@ Class {
 		'nesting',
 		'markupsToEscape'
 	],
-	#category : 'Pillar-ExporterPillar'
+	#category : #'Pillar-ExporterPillar'
 }
 
 { #category : #private }

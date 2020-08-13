@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'configuration'
 	],
-	#category : 'Pillar-Tests-ExporterCore-LevelPrinter'
+	#category : #'Pillar-Tests-ExporterCore-LevelPrinter'
 }
 
 { #category : #testing }
@@ -73,6 +73,16 @@ PRDocumentWriterTest >> configuration [
 { #category : #helpers }
 PRDocumentWriterTest >> configurationClass [
 	^ ConfigurationForPillar
+]
+
+{ #category : #helpers }
+PRDocumentWriterTest >> createWriterConfiguredWith: aBlock on: aWriteStream [ 
+	| writer |
+	writer := (self actualClass on: aWriteStream).
+	aBlock value: writer.
+	^ writer
+		configuration: self configuration;
+		yourself
 ]
 
 { #category : #helpers }
@@ -973,5 +983,15 @@ PRDocumentWriterTest >> writeWithSeparateOutputFiles: aDocumentItem [
 	^ String
 		streamContents: [ :stream | 
 			writer := self createWriterWithSeparateOutputFilesOn: stream.
+			writer start: aDocumentItem ]
+]
+
+{ #category : #helpers }
+PRDocumentWriterTest >> writerDo: aBlock thenWrite: aDocumentItem [ 
+
+	^ String
+		streamContents: [ :stream | 
+			| writer |
+			writer := (self createWriterConfiguredWith: aBlock on: stream).
 			writer start: aDocumentItem ]
 ]
