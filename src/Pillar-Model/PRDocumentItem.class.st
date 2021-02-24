@@ -8,7 +8,7 @@ I'm usually contained inside a PRDocumentGroup at the exception of PRDocument.
 
 !! Public API and Key Messages
 
-- #parser. This class method returns the default parser for this document model.
+- parser: This class method returns the default parser for this document model.
 
 
 !! Internal Representation and Key Implementation Points.
@@ -25,7 +25,7 @@ Class {
 		'start',
 		'stop'
 	],
-	#category : 'Pillar-Model-Document'
+	#category : #'Pillar-Model-Document'
 }
 
 { #category : #comparing }

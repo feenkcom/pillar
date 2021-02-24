@@ -14,9 +14,9 @@ Each annotation has the possibility to define a default parameter that does not 
 I allow one to extend easily the syntax of Pillar. I am contained inside a PRDocumentGroup. I am define by a tag and I can have some parameters.
 
 !! Public API and Key Messages
-- #tag This class method define the tag of an annotation.
+- ""tag"" This class method define the tag of an annotation.
 
-- #parameters: aCollection   This class method is the constructor of an annotation. This method takes a dictionary of parameters.
+- ""parameters:"" aCollection   This class method is the constructor of an annotation. This method takes a dictionary of parameters.
 
 !!Internal Representation and Key Implementation Points.
  
